@@ -1,0 +1,16 @@
+{
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\n## This function creates a matrix object which resides in the scope of the function.\n\nmakeCacheMatrix <- function(x = matrix()) {\n        chacheMatrix <- NULL\n        set <- function(y){\n                x <<- y\n                chacheMatrix <<- NULL\n        }\n        get <- function() x\n        setInverse <- function(solve) chacheMatrix <<- solve\n        getInverse <- function() chacheMatrix\n        list(set = set, get = get,\n             setInverse = setInverse,\n             getInverse = getInverse)\n}\n\n\n\n## Write a short comment describing this function\n\n## This function goes and samples to see if any cached matrice exists if it does it prints it out, if it does not then it creates a one and caches it.\n\ncacheSolve <- function(x, ...) {\n        inversedMatrix <- x$getInverse()\n        if(!is.null(inversedMatrix)){\n                message(\"Getting cached data...\")\n                return(inversedMatrix)\n        }\n        data <- x$get()\n        inversedMatrix <- solve(data, ...)\n        x$setInverse(inversedMatrix)\n        inversedMatrix\n        ## Return a matrix that is the inverse of 'x'\n}\n",
+    "created" : 1432391452749.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2038337108",
+    "id" : "1E06536F",
+    "lastKnownWriteTime" : 1432393949,
+    "path" : "~/Data/ProgrammingAssignment2/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
